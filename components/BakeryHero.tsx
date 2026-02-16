@@ -4,7 +4,7 @@ export default function LandingPage() {
 
   // Data for the Menu Section
   const menuItems = [
-    { name: "Cosmic Cookie", price: "$4.50", desc: "Dark chocolate chunks with sea salt.", img: "/cookie.png", rotate: "rotate-2" },
+    { name: "Cosmic Cookie", price: "$4.50", desc: "Dark chocolate chunks with sea salt.", img: "/cookie.jpg", rotate: "rotate-2" },
     { name: "Nebula Muffin", price: "$5.00", desc: "Blueberry explosion with lemon glaze.", img: "/muffin.png", rotate: "-rotate-1" },
     { name: "Galaxy Glaze", price: "$3.75", desc: "Sugar-free vanilla bean donut.", img: "/donut.png", rotate: "rotate-3" },
     { name: "Meteor Bar", price: "$6.00", desc: "Oat & honey protein power bar.", img: "/bar.png", rotate: "-rotate-2" },
@@ -27,64 +27,76 @@ export default function LandingPage() {
 
         {/* --- CENTRAL GRID LAYOUT --- */}
         <div className="container mx-auto px-4 mt-8 md:mt-12 relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-2">
 
             {/* Left Text */}
-            <div className="md:col-span-3 text-center md:text-right">
-              <p className="text-brand-purple text-lg md:text-2xl font-sans font-bold uppercase tracking-tight leading-snug transform -rotate-2">
+            <div className="md:col-span-4 text-center md:text-right flex items-center justify-end">
+              <p className="text-brand-purple text-lg md:text-2xl font-sans font-bold uppercase tracking-tight leading-snug transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-default">
                 Healthy snacking has <br /> never been this <br /> delicious.
               </p>
             </div>
 
             {/* Center Cupcake Composition */}
-            <div className="md:col-span-6 relative flex justify-center h-[400px] md:h-[500px]">
+            <div className="md:col-span-4 relative flex justify-center h-[400px] md:h-[500px]">
 
               {/* The Cupcake Image */}
-              <div className="relative w-64 h-64 md:w-96 md:h-96 z-10 mt-10">
+              <div className="relative w-64 h-64 md:w-96 md:h-96 z-10 mt-10 animate-float" style={{ animationDelay: '2s' }}>
                 <Image
                   src="/cupcake.png"
                   alt="Chocolate Caramel Cupcake"
                   fill
-                  className="object-contain drop-shadow-2xl scale-110"
+                  className="object-contain drop-shadow-2xl scale-110 hover:scale-125 transition-transform duration-500 cursor-pointer"
                   priority
                 />
               </div>
 
               {/* STICKER 1: SUGAR-FREE */}
-              <div className="absolute top-10 left-4 md:left-12 rotate-[-15deg] z-20 hover:scale-110 transition-transform cursor-default">
-                <div className="relative">
-                  <svg width="140" height="70" viewBox="0 0 200 100" className="fill-brand-yellow drop-shadow-md">
-                    <path d="M10,50 Q30,10 90,20 Q180,10 190,50 Q180,90 100,80 Q20,90 10,50 Z" />
-                  </svg>
-                  <span className="absolute inset-0 flex items-center justify-center text-brand-pink text-xl md:text-2xl pt-1">SUGAR-FREE</span>
+              <div className="absolute top-10 left-0 md:-left-4 z-20 pointer-events-none">
+                <div className="animate-float pointer-events-auto">
+                  <div className="rotate-[-15deg] hover:scale-110 hover:rotate-[-10deg] transition-all duration-300 cursor-pointer">
+                    <div className="relative">
+                      <svg width="140" height="70" viewBox="0 0 200 100" className="fill-brand-yellow drop-shadow-md">
+                        <path d="M10,50 Q30,10 90,20 Q180,10 190,50 Q180,90 100,80 Q20,90 10,50 Z" />
+                      </svg>
+                      <span className="absolute inset-0 flex items-center justify-center text-brand-pink text-xl md:text-2xl pt-1 font-bold">SUGAR-FREE</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* STICKER 2: LACTOSE-FREE */}
-              <div className="absolute top-8 right-4 md:right-10 rotate-[10deg] z-20 hover:scale-110 transition-transform cursor-default">
-                <div className="relative">
-                  <svg width="150" height="70" viewBox="0 0 200 100" className="fill-brand-brown drop-shadow-md">
-                    <path d="M20,50 Q50,5 150,15 Q190,40 180,70 Q140,95 60,85 Q10,80 20,50 Z" />
-                  </svg>
-                  <span className="absolute inset-0 flex items-center justify-center text-white text-xl md:text-2xl pt-1">LACTOSE-FREE</span>
+              <div className="absolute top-8 right-0 md:-right-6 z-20 pointer-events-none">
+                <div className="animate-float-slow pointer-events-auto">
+                  <div className="rotate-[10deg] hover:scale-110 hover:rotate-[5deg] transition-all duration-300 cursor-pointer">
+                    <div className="relative">
+                      <svg width="150" height="70" viewBox="0 0 200 100" className="fill-brand-brown drop-shadow-md">
+                        <path d="M20,50 Q50,5 150,15 Q190,40 180,70 Q140,95 60,85 Q10,80 20,50 Z" />
+                      </svg>
+                      <span className="absolute inset-0 flex items-center justify-center text-white text-xl md:text-2xl pt-1 font-bold">LACTOSE-FREE</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* STICKER 3: HIGH-PROTEIN */}
-              <div className="absolute bottom-20 right-0 md:-right-4 rotate-[-10deg] z-20 hover:scale-110 transition-transform cursor-default">
-                <div className="relative">
-                  <svg width="160" height="70" viewBox="0 0 200 100" className="fill-brand-pink drop-shadow-md">
-                    <path d="M15,40 Q40,10 110,15 Q195,20 185,60 Q160,95 80,85 Q5,80 15,40 Z" />
-                  </svg>
-                  <span className="absolute inset-0 flex items-center justify-center text-brand-yellow text-xl md:text-2xl pt-1">HIGH-PROTEIN</span>
+              <div className="absolute bottom-20 right-0 md:-right-8 z-20 pointer-events-none">
+                <div className="animate-float-fast pointer-events-auto">
+                  <div className="rotate-[-10deg] hover:scale-110 hover:rotate-[-5deg] transition-all duration-300 cursor-pointer">
+                    <div className="relative">
+                      <svg width="160" height="70" viewBox="0 0 200 100" className="fill-brand-pink drop-shadow-md">
+                        <path d="M15,40 Q40,10 110,15 Q195,20 185,60 Q160,95 80,85 Q5,80 15,40 Z" />
+                      </svg>
+                      <span className="absolute inset-0 flex items-center justify-center text-brand-yellow text-xl md:text-2xl pt-1 font-bold">HIGH-PROTEIN</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
             </div>
 
             {/* Right Text */}
-            <div className="md:col-span-3 text-center md:text-left">
-              <p className="text-brand-purple text-lg md:text-2xl font-sans font-bold uppercase tracking-tight leading-snug transform rotate-2">
+            <div className="md:col-span-4 text-center md:text-left flex items-center justify-start">
+              <p className="text-brand-purple text-lg md:text-2xl font-sans font-bold uppercase tracking-tight leading-snug transform rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-default">
                 It's also incredibly <br /> satisfying and <br /> fulfilling.
               </p>
             </div>
@@ -187,7 +199,6 @@ export default function LandingPage() {
             <span className="bg-brand-yellow text-brand-purple px-4 py-1 rounded-full font-sans font-bold uppercase tracking-wider text-sm border-2 border-brand-purple">Menu</span>
             <h2 className="text-6xl text-brand-purple mt-4 uppercase">Crowd Favorites</h2>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {menuItems.map((item, index) => (
               <div key={index} className={`group bg-white p-4 rounded-3xl border-2 border-brand-brown/10 hover:border-brand-purple transition-all duration-300 transform ${item.rotate} hover:rotate-0 hover:shadow-xl`}>
@@ -298,7 +309,7 @@ export default function LandingPage() {
           </div>
 
           <div className="border-t border-brand-cream/10 pt-8 text-center font-sans text-sm opacity-40">
-            © 2024 IL FORNO di Teo. All rights reserved. Made with sugar-free love.
+            © 2026 IL FORNO di Teo. All rights reserved. Made with sugar-free love.
           </div>
         </div>
       </footer>
